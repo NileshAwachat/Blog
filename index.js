@@ -8,7 +8,11 @@ const PORT = 9001
 app.set('view engine','ejs')
 app.set('views',path.resolve('./views'))
 
+mongoose.connect('mongodb://127.0.0.1:27017/blogji')
+.then((e)=>console.log('mongoo connected'))
 
+
+app.use(express.urlencoded({extended:false}))
 app.get('/',(req,res)=>{
     res.render('home')
 })

@@ -21,4 +21,13 @@ router.post('/signup', async(req,res)=>{
     return res.redirect('/')
 })
 
-module.exports=router
+router.post('/signin',async(req,res)=>{
+    const {email,password} = req.body
+   const isMatched= User.matchPassword(email,password)
+   console.log('User',User)
+   return res.redirect('/')
+})
+
+module.exports = router
+
+
