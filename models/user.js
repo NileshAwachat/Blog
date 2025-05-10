@@ -41,7 +41,7 @@ userSchema.pre('save',function(next){
     const hashedPassword = createHmac('sha256',salt).update(user.password).digest('hex')
     this.salt = salt
     this.password=hashedPassword
-    next()
+    next() 
 })
 
 const User =  model('user',userSchema)
